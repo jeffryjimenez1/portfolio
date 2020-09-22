@@ -1,0 +1,17 @@
+
+@mixin flexAlignment ($flex-direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin buttons {
+  display: inline-block;
+  background: $secondary-color;
+  color: $primary-color;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
