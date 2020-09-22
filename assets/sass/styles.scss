@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import 'variables';
+@import "mixins";
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background: $primary-color;
+
+    .main-nav {
+        display: none;
+    }
+
+    .navMenu-btn {
+        position: fixed;
+        height: 30px;
+        width: 30px;
+        right: 10px;
+        top: 10px;
+        z-index: 100;
+
+        .line {
+            width: 100%;
+            height: 5px;
+            background: $white;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.showcase {
+    background: $background;
+    height: 100vh;
+    position: relative;
+
+    .showcase-text {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        right: 0;
+        z-index: 2;
+        @include flexAlignment(column, center, center);
+        h1 {
+            //color: $white;
+            font-size: 2rem;
+            background: #623C5F;
+            color: $white;
+            margin-top: 100px;
+            padding: 5px;
+        }
+
+        p {
+            color: $white;
+            background: #623C5F;
+            font-size: 1.5rem;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            padding: 5px;
+        }
+    }
+
+    .showcase-secondary {
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        z-index: 2;
+        background: $background;
+        padding: 10px;
+        p {
+            color: $white;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+    }
+
+    .showcase-pic {
+        z-index: 1;
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        left: 0;
+    }
+
+    .showcase-btn {
+        @include buttons;
+        font-size: 1.4rem;
+    }
+}
+
+@import 'mediaQueries';
