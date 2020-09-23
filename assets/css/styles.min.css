@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@keyframes floatIcon {
+  0% {
+    transform: rotate(55deg);
+    right: 10%; }
+  50% {
+    transform: rotate(0deg);
+    right: 40%; }
+  100% {
+    transform: rotate(-55deg);
+    right: 10%; } }
 * {
   box-sizing: border-box; }
 
@@ -36,19 +46,48 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+    .showcase .showcase-text .float {
+      position: absolute;
+      color: rgba(62, 62, 110, 0.6);
+      animation: floatIcon 3s ease infinite;
+      font-size: 2.5rem;
+      z-index: 1; }
+      .showcase .showcase-text .floatIcon-1 {
+        top: 5%;
+        right: 5%;
+        animation-delay: 0.5s; }
+      .showcase .showcase-text .floatIcon-2 {
+        top: 15%;
+        right: 10%;
+        animation-delay: 1s; }
+      .showcase .showcase-text .floatIcon-3 {
+        top: 30%;
+        right: 15%;
+        animation-delay: 1.5s; }
+      .showcase .showcase-text .floatIcon-4 {
+        top: 45%;
+        right: 20%;
+        animation-delay: 2s; }
+      .showcase .showcase-text .floatIcon-5 {
+        top: 60%;
+        right: 25%;
+        animation-delay: 2.5s;
+        z-index: 1; }
     .showcase .showcase-text h1 {
       font-size: 2rem;
       background: #623C5F;
       color: #fff;
       margin-top: 100px;
-      padding: 5px; }
+      padding: 5px;
+      z-index: 2; }
     .showcase .showcase-text p {
       color: #fff;
       background: #623C5F;
       font-size: 1.5rem;
       margin-top: 15px;
       margin-bottom: 30px;
-      padding: 5px; }
+      padding: 5px;
+      z-index: 2; }
   .showcase .showcase-secondary {
     width: 100%;
     bottom: 0;
@@ -79,7 +118,8 @@ header {
     border-radius: 10px;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.4rem; }
+    font-size: 1.4rem;
+    z-index: 2; }
 
 @media only screen and (min-width: 600px) {
   header .main-nav {
