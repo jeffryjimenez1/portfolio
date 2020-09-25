@@ -5,18 +5,32 @@
     right: 10%; }
   50% {
     transform: rotate(0deg);
-    right: 40%; }
+    right: 40%;
+    color: #FFB561; }
   100% {
     transform: rotate(-55deg);
     right: 10%; } }
+@media only screen and (min-width: 900px) {
+  @keyframes floatIcon {
+    0% {
+      transform: rotate(55deg);
+      right: 10%; }
+    50% {
+      transform: rotate(0deg);
+      right: 80%;
+      color: #FFB561; }
+    100% {
+      transform: rotate(-55deg);
+      right: 10%; } } }
 * {
   box-sizing: border-box; }
 
 body {
-  font-family: 'Poppins', sans-serif; }
+  font-family: 'Poppins', sans-serif;
+  background: #23233b; }
 
 header {
-  background: #504f54; }
+  background: #23233b; }
   header .main-nav {
     display: none; }
   header .navMenu-btn {
@@ -113,7 +127,7 @@ header {
   .showcase .showcase-btn {
     display: inline-block;
     background: #FFB561;
-    color: #504f54;
+    color: #23233b;
     padding: 10px 15px;
     border-radius: 10px;
     text-transform: uppercase;
@@ -132,5 +146,63 @@ header {
     padding: 20px;
     display: inline-block;
     font-size: 1.2rem; } }
+@media only screen and (min-width: 768px) {
+  .main-header .navMenu-btn {
+    display: none; }
+  .main-header .main-nav {
+    position: fixed;
+    z-index: 10; }
+    .main-header .main-nav a {
+      position: relative;
+      transition: all 0.5s ease;
+      z-index: 3;
+      color: #fff;
+      text-transform: uppercase; }
+    .main-header .main-nav a:before {
+      content: "";
+      position: absolute;
+      height: 10px;
+      width: 0;
+      bottom: 0;
+      left: 0;
+      transition: width 0.5s ease; }
+    .main-header .main-nav a:hover {
+      color: #fff; }
+    .main-header .main-nav a:hover:before {
+      background: #FFB561;
+      width: 100%; } }
+@media only screen and (min-width: 900px) {
+  .showcase .showcase-text {
+    width: 45%;
+    left: 30%;
+    z-index: 3;
+    background: #23233b; }
+    .showcase .showcase-text h1 {
+      font-size: 3.5rem;
+      background: none; }
+    .showcase .showcase-text p {
+      background: none;
+      border: 2px #fff solid; }
+    .showcase .showcase-text .float {
+      font-size: 3rem;
+      animation-duration: 6s; }
+  .showcase .showcase-pic {
+    width: 30%; }
+  .showcase .overlay-pic {
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: rgba(35, 35, 59, 0.4);
+    z-index: 3; }
+  .showcase .showcase-secondary {
+    width: 25%;
+    right: 0;
+    bottom: 10%;
+    z-index: 2;
+    background: #FFB561; }
+    .showcase .showcase-secondary p {
+      font-size: 1.4rem;
+      color: #23233b;
+      margin: 0; } }
 
 /*# sourceMappingURL=styles.min.css.map */

@@ -1,6 +1,14 @@
 
 @keyframes floatIcon  {
   0% {transform: rotate(55deg); right: 10%;}
-  50% {transform: rotate(-0deg); right: 40%;}
+  50% {transform: rotate(-0deg); right: 40%; color: #FFB561}
   100% {transform: rotate(-55deg); right: 10%;}
+}
+
+@media only screen and (min-width: 900px) {
+  @keyframes floatIcon  {
+    0% {transform: rotate(55deg); right: 10%;}
+    50% {transform: rotate(-0deg); right: 80%; color: #FFB561;}
+    100% {transform: rotate(-55deg); right: 10%;}
+  }
 }
