@@ -28,6 +28,7 @@
 
         .main-nav {
             position: fixed;
+            right: 0;
             z-index: 10;
 
             a {
@@ -50,10 +51,22 @@
                 color: #fff;
             }
             a:hover:before {
-                background: $secondary-color;
+                background-image: $gradientHover;
                 width: 100%;
             }
 
+        }
+    }
+
+    .showcase {
+        .showcase-text {
+
+            .showcase-btn {
+                transition: all 1s ease;
+                &:hover {
+                    background-image: $gradientHover;
+                }
+            }
         }
     }
 }

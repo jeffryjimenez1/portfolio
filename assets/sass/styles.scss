@@ -88,7 +88,7 @@ header {
 
         h1 {
             //color: $white;
-            font-size: 2rem;
+            font-size: 2.5rem;
             background: #623C5F;
             color: $white;
             margin-top: 100px;
@@ -117,11 +117,10 @@ header {
 
         p {
             color: $white;
-            font-size: 1.2rem;
+            font-size: $fontSizeSmall;
             margin-top: 15px;
             margin-bottom: 30px;
             line-height: 1.4;
-            font-weight: bold;
             letter-spacing: 1.5px;
         }
     }
@@ -139,6 +138,131 @@ header {
         @include buttons;
         font-size: 1.4rem;
         z-index: 2;
+    }
+}
+
+.projects {
+    padding: 10px;
+
+    .projects-text {
+        h1 {
+            font-size: 2.5rem;
+            color: $secondary-color;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        p {
+            color: $white;
+            font-size: $fontSizeSmall;
+            line-height: 1.4;
+        }
+    }
+
+    .project-item {
+        h3 {
+            font-size: $fontSizeSmall;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: $secondary-color
+        }
+        p {
+            color: $white;
+            font-size: $fontSizeSmall;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        span {
+            color: $white;
+            border: 1px solid $white;
+            padding: 10px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin: 10px 0;
+        }
+        .link-github {
+            display: flex;
+            align-items: center;
+            a {
+                border-bottom: 3px solid $secondary-color;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+                color: $white;
+            }
+            a:hover {
+                color: $secondary-color;
+            }
+            i {
+                color: $white;
+                margin-right: 10px;
+                text-transform: lowercase;
+                font-size: 2.5rem;
+                display: inline-block;
+            }
+        }
+        
+    }
+   
+}
+
+.about-page {
+    padding: 10px;
+    background: #623C5F;
+    h1 {
+        font-size: 2.5rem;
+        color: $secondary-color;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+    p {
+        color: $white;
+        font-size: $fontSizeSmall;
+        line-height: 1.4;
+    }
+
+    .skills-text {
+        margin-top: 30px;
+    }
+
+    .skills-logos {
+        background: #A8566E;
+        font-size: 3rem;
+        text-align: center;
+        color: $white;
+        padding: 20px 0;
+        margin-top: 30px;
+        background: #F9F871;
+
+        i {
+           
+            color: #23233B;
+        }
+    }
+}
+
+.main-footer {
+    padding: 20px 0;
+    background: $dark;
+    text-align: center;
+    color: $white;
+    margin: 0;
+    p {
+        margin: 10px 0;
+    }
+    i {
+        font-size: 2rem;
+        margin: 0 10px;
+    }
+    a {
+        font-size: $fontSizeSmall;
+        display: block;
+        color: $white;
+        margin: 10px 0;
     }
 }
 
