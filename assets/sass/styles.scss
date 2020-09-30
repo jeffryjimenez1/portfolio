@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500&display=swap');
 @import 'variables';
 @import "mixins";
 @import "animations";
@@ -9,22 +9,78 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
+}
+
+.wrapper-header {
+    background: $primary-color;
+    width: 100%;
+}
+
+.wrapper-showcase {
     background: $primary-color;
 }
 
-.wrapper {
-    max-width: 1400px;
-    margin: auto;
+.wrapper-about {
+    background-image: linear-gradient(to right top, #623c5f, #744265, #854869, #974f6c, #a8566e);
+}
+
+.wrapper-projects {
+    background: $primary-color;
+}
+
+.wrapper-carousel {
+    background-image: linear-gradient(to right top, #623c5f, #744265, #854869, #974f6c, #a8566e);
 }
 
 header {
     background: $primary-color;
+    position: relative;
+    max-width: 1400px;;
+    margin: auto;
 
     .main-nav {
         display: none;
     }
+
+    .main-nav {
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        right: -100%;
+        background: $secondary-color;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: right 1s;
+
+        li {
+            margin: 40px;
+            font-size: 2rem;
+
+            a {
+                color: #fff;
+                color: $primary-color;
+            }
+            
+            a:active {
+                background: $white;
+                padding: 10px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .change {
+        right: 0;
+    } 
 
     .navMenu-btn {
         position: fixed;
@@ -32,13 +88,17 @@ header {
         width: 30px;
         right: 10px;
         top: 10px;
-        z-index: 100;
+        z-index: 150;
 
         .line {
             width: 100%;
             height: 5px;
             background: $white;
             margin-bottom: 5px;
+        }
+
+         .line-1 .change {
+                transform: rotateZ(-405deg) translate(-8px, 6px);           
         }
     }
 }
@@ -47,6 +107,7 @@ header {
     background: $primary-color;
     height: 100vh;
     position: relative;
+    max-width: 1400px;
 
     .showcase-text {
         position: absolute;
@@ -63,30 +124,31 @@ header {
             font-size: 2.5rem;
             z-index: 1;
             &Icon-1 {
-                top: 5%;
+                top: 10%;
                 right: 5%;
                 animation-delay: 0.5s;
             }
             &Icon-2{
-                top: 15%;
+                top: 25%;
                 right: 10%;
                 animation-delay: 1s;
             }
             &Icon-3{
-                top: 30%;
+                top: 40%;
                 right: 15%;
                 animation-delay: 1.5s;
             }
             &Icon-4{
-                top: 45%;
+                top: 55%;
                 right: 20%;
                 animation-delay: 2s;
             }
             &Icon-5{
-                top: 60%;
+                top: 70%;
                 right: 25%;
                 animation-delay: 2.5s;
-                z-index: 1;
+                position: absolute;
+                z-index: 100;
             }
         }
 
@@ -94,11 +156,12 @@ header {
         h1 {
             //color: $white;
             font-size: 2.5rem;
-            background: #623C5F;
+            background: #623c5f;
             color: $white;
             margin-top: 100px;
             padding: 5px;
             z-index: 2;
+            font-family: 'Anton', sans-serif;
         }
 
         p {
@@ -147,8 +210,10 @@ header {
 }
 
 .projects {
-    padding: 10px;
-
+    padding: 50px 10px;
+    background: $primary-color;
+    max-width: $max-width;
+    margin: auto;
     .projects-text {
         h1 {
             font-size: 2.5rem;
@@ -163,7 +228,11 @@ header {
         }
     }
 
+    .item-2 {
+        margin-top: 80px;
+    }
     .project-item {
+            
             h3 {
                 font-size: $fontSizeSmall;
                 margin-top: 20px;
@@ -178,8 +247,8 @@ header {
                 margin-bottom: 20px;
             }
             span {
-                color: $white;
-                border: 1px solid $white;
+                color: $secondary-color;
+                border: 1px solid $secondary-color;
                 padding: 10px;
                 display: inline-block;
                 margin: 10px 0;
@@ -209,10 +278,11 @@ header {
                 right: -100%;
                 @include flexAlignment(column, center, center);
                 transition: all 1s ease;
-                p {
+                a {
                     color: $white;
                     font-size: 2rem;
                     border-bottom: 5px $secondary-color solid;
+                    display: inline-block;
                 }
             }
 
@@ -251,8 +321,9 @@ header {
 }
 
 .about-page {
-    padding: 10px;
-    background: #623C5F;
+    padding: 50px 10px;
+    max-width: $max-width;
+    margin: auto;    
     h1 {
         font-size: 2.5rem;
         color: $secondary-color;
@@ -267,39 +338,46 @@ header {
 
     .skills-text {
         margin-top: 30px;
+
+        ul {
+            margin-top: 15px;
+            li{
+                font-size: $fontSizeSmall;
+                color: $white;
+                margin-bottom: 7px;
+            }
+        }
     }
 
     .skills-logos {
-        background: #A8566E;
-        font-size: 3rem;
+        font-size: 2rem;
         text-align: center;
-        color: $white;
         padding: 20px 0;
         margin-top: 30px;
-        background: #F9F871;
+        background: $primary-color;
 
         i {
-           
-            color: #23233B;
+            color: $secondary-color;
         }
     }
 }
 
 .availability-status {
-    padding:  10px;
-    width: 100%;
+    padding:  30px 10px;
+    max-width: $max-width;
+    margin: auto;
 
     .carousel {
         position: relative;
         height: 350px;
         width: 100%;
+        border: 5px solid $secondary-color;
     }
     .carousel-item {
         display: none;
         position: absolute;
         height: 100%;
         width: 100%;
-        background: url("../img/laptop.jpg") no-repeat center/cover;
 
         .carousel-text {
             width: 100%;
@@ -332,6 +410,7 @@ header {
     text-align: center;
     color: $white;
     margin: 0;
+
     p {
         margin: 10px 0;
     }

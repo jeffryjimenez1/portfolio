@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500&display=swap");
 @keyframes floatIcon {
   0% {
     transform: rotate(55deg);
@@ -25,35 +25,79 @@
 * {
   box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth; }
+
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif; }
+
+.wrapper-header {
+  background: #23233b;
+  width: 100%; }
+
+.wrapper-showcase {
   background: #23233b; }
 
-.wrapper {
-  max-width: 1400px;
-  margin: auto; }
+.wrapper-about {
+  background-image: linear-gradient(to right top, #623c5f, #744265, #854869, #974f6c, #a8566e); }
+
+.wrapper-projects {
+  background: #23233b; }
+
+.wrapper-carousel {
+  background-image: linear-gradient(to right top, #623c5f, #744265, #854869, #974f6c, #a8566e); }
 
 header {
-  background: #23233b; }
+  background: #23233b;
+  position: relative;
+  max-width: 1400px;
+  margin: auto; }
   header .main-nav {
     display: none; }
+  header .main-nav {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    right: -100%;
+    background: #FFB561;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: right 1s; }
+    header .main-nav li {
+      margin: 40px;
+      font-size: 2rem; }
+      header .main-nav li a {
+        color: #fff;
+        color: #23233b; }
+      header .main-nav li a:active {
+        background: #fff;
+        padding: 10px;
+        border-radius: 10px; }
+  header .change {
+    right: 0; }
   header .navMenu-btn {
     position: fixed;
     height: 30px;
     width: 30px;
     right: 10px;
     top: 10px;
-    z-index: 100; }
+    z-index: 150; }
     header .navMenu-btn .line {
       width: 100%;
       height: 5px;
       background: #fff;
       margin-bottom: 5px; }
+    header .navMenu-btn .line-1 .change {
+      transform: rotateZ(-405deg) translate(-8px, 6px); }
 
 .showcase {
   background: #23233b;
   height: 100vh;
-  position: relative; }
+  position: relative;
+  max-width: 1400px; }
   .showcase .showcase-text {
     position: absolute;
     height: 100%;
@@ -71,33 +115,35 @@ header {
       font-size: 2.5rem;
       z-index: 1; }
       .showcase .showcase-text .floatIcon-1 {
-        top: 5%;
+        top: 10%;
         right: 5%;
         animation-delay: 0.5s; }
       .showcase .showcase-text .floatIcon-2 {
-        top: 15%;
+        top: 25%;
         right: 10%;
         animation-delay: 1s; }
       .showcase .showcase-text .floatIcon-3 {
-        top: 30%;
+        top: 40%;
         right: 15%;
         animation-delay: 1.5s; }
       .showcase .showcase-text .floatIcon-4 {
-        top: 45%;
+        top: 55%;
         right: 20%;
         animation-delay: 2s; }
       .showcase .showcase-text .floatIcon-5 {
-        top: 60%;
+        top: 70%;
         right: 25%;
         animation-delay: 2.5s;
-        z-index: 1; }
+        position: absolute;
+        z-index: 100; }
     .showcase .showcase-text h1 {
       font-size: 2.5rem;
-      background: #623C5F;
+      background: #623c5f;
       color: #fff;
       margin-top: 100px;
       padding: 5px;
-      z-index: 2; }
+      z-index: 2;
+      font-family: 'Anton', sans-serif; }
     .showcase .showcase-text p {
       color: #fff;
       background: #623C5F;
@@ -139,7 +185,10 @@ header {
     z-index: 2; }
 
 .projects {
-  padding: 10px; }
+  padding: 50px 10px;
+  background: #23233b;
+  max-width: 1200px;
+  margin: auto; }
   .projects .projects-text h1 {
     font-size: 2.5rem;
     color: #FFB561;
@@ -149,6 +198,8 @@ header {
     color: #fff;
     font-size: 1.2rem;
     line-height: 1.4; }
+  .projects .item-2 {
+    margin-top: 80px; }
   .projects .project-item h3 {
     font-size: 1.2rem;
     margin-top: 20px;
@@ -161,8 +212,8 @@ header {
     line-height: 1.4;
     margin-bottom: 20px; }
   .projects .project-item span {
-    color: #fff;
-    border: 1px solid #fff;
+    color: #FFB561;
+    border: 1px solid #FFB561;
     padding: 10px;
     display: inline-block;
     margin: 10px 0; }
@@ -187,10 +238,11 @@ header {
     justify-content: center;
     align-items: center;
     transition: all 1s ease; }
-    .projects .project-item .image-overlay .overlay p {
+    .projects .project-item .image-overlay .overlay a {
       color: #fff;
       font-size: 2rem;
-      border-bottom: 5px #FFB561 solid; }
+      border-bottom: 5px #FFB561 solid;
+      display: inline-block; }
   .projects .project-item .image-overlay:hover .overlay {
     right: 0; }
   .projects .project-item .link-github {
@@ -211,8 +263,9 @@ header {
       display: inline-block; }
 
 .about-page {
-  padding: 10px;
-  background: #623C5F; }
+  padding: 50px 10px;
+  max-width: 1200px;
+  margin: auto; }
   .about-page h1 {
     font-size: 2.5rem;
     color: #FFB561;
@@ -224,30 +277,35 @@ header {
     line-height: 1.4; }
   .about-page .skills-text {
     margin-top: 30px; }
+    .about-page .skills-text ul {
+      margin-top: 15px; }
+      .about-page .skills-text ul li {
+        font-size: 1.2rem;
+        color: #fff;
+        margin-bottom: 7px; }
   .about-page .skills-logos {
-    background: #A8566E;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
-    color: #fff;
     padding: 20px 0;
     margin-top: 30px;
-    background: #F9F871; }
+    background: #23233b; }
     .about-page .skills-logos i {
-      color: #23233B; }
+      color: #FFB561; }
 
 .availability-status {
-  padding: 10px;
-  width: 100%; }
+  padding: 30px 10px;
+  max-width: 1200px;
+  margin: auto; }
   .availability-status .carousel {
     position: relative;
     height: 350px;
-    width: 100%; }
+    width: 100%;
+    border: 5px solid #FFB561; }
   .availability-status .carousel-item {
     display: none;
     position: absolute;
     height: 100%;
-    width: 100%;
-    background: url("../img/laptop.jpg") no-repeat center/cover; }
+    width: 100%; }
     .availability-status .carousel-item .carousel-text {
       width: 100%;
       height: 100%;
@@ -272,7 +330,7 @@ header {
 
 .main-footer {
   padding: 20px 0;
-  background: #13101d;
+  background: #010111;
   text-align: center;
   color: #fff;
   margin: 0; }
@@ -289,78 +347,168 @@ header {
 
 @media only screen and (min-width: 600px) {
   header .main-nav {
-    display: block; }
+    display: block;
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    color: #fff; }
   header .main-nav ul {
     display: flex;
     justify-content: flex-end; }
-  header a {
+    header .main-nav ul .topLink {
+      display: none; }
+  header ul li a {
     color: #fff;
-    padding: 20px;
+    padding: 25px 0;
     display: inline-block;
     font-size: 1.2rem; } }
 @media only screen and (min-width: 768px) {
   .main-header .navMenu-btn {
     display: none; }
-  .main-header .main-nav {
-    position: fixed;
-    right: 0;
-    z-index: 10; }
-    .main-header .main-nav a {
-      position: relative;
-      transition: all 0.5s ease;
-      z-index: 3;
-      color: #fff;
-      text-transform: uppercase; }
-    .main-header .main-nav a:before {
-      content: "";
-      position: absolute;
-      height: 10px;
-      width: 0;
-      bottom: 0;
-      left: 0;
-      transition: width 0.5s ease; }
-    .main-header .main-nav a:hover {
-      color: #fff; }
-    .main-header .main-nav a:hover:before {
-      background-image: linear-gradient(to right top, #a8566e, #c6686f, #df7e6e, #f3986b, #ffb56b);
-      width: 100%; }
+  .main-header .main-nav a {
+    position: relative;
+    transition: all 0.5s ease;
+    z-index: 3;
+    color: #fff;
+    text-transform: uppercase; }
+  .main-header .main-nav a:before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease; }
+  .main-header .main-nav a:hover {
+    color: #fff; }
+  .main-header .main-nav a:hover:before {
+    background-image: linear-gradient(to right top, #a8566e, #c6686f, #df7e6e, #f3986b, #ffb56b);
+    width: 100%; }
 
   .showcase .showcase-text .showcase-btn {
     transition: all 1s ease; }
     .showcase .showcase-text .showcase-btn:hover {
       background-image: linear-gradient(to right top, #a8566e, #c6686f, #df7e6e, #f3986b, #ffb56b); } }
 @media only screen and (min-width: 900px) {
-  .showcase .showcase-text {
-    width: 45%;
-    left: 30%;
-    z-index: 3;
-    background: #23233b; }
-    .showcase .showcase-text h1 {
-      font-size: 3.5rem;
-      background: none; }
-    .showcase .showcase-text p {
-      background: none;
-      border: 2px #fff solid; }
-    .showcase .showcase-text .float {
-      font-size: 3rem;
-      animation-duration: 6s; }
-  .showcase .showcase-pic {
-    width: 30%; }
-  .showcase .overlay-pic {
-    position: absolute;
-    width: 30%;
-    height: 100%;
-    background: rgba(35, 35, 59, 0.4);
-    z-index: 3; }
-  .showcase .showcase-secondary {
-    width: 25%;
-    right: 0;
-    bottom: 10%;
-    z-index: 2;
-    background: #FFB561; }
-    .showcase .showcase-secondary p {
-      font-size: 1.4rem;
-      color: #23233b;
-      margin: 0; } }
+  .main-nav ul li a {
+    font-size: 1.5rem; }
+
+  .showcase {
+    margin: auto; }
+    .showcase .showcase-text {
+      width: 45%;
+      left: 30%;
+      z-index: 3;
+      background: #23233b; }
+      .showcase .showcase-text h1 {
+        font-size: 5rem;
+        background: none; }
+      .showcase .showcase-text p {
+        background: none;
+        border: 2px #fff solid;
+        margin: 30px 0; }
+      .showcase .showcase-text .float {
+        font-size: 3.4rem;
+        animation-duration: 6s; }
+    .showcase .showcase-pic {
+      width: 30%; }
+    .showcase .overlay-pic {
+      position: absolute;
+      width: 30%;
+      height: 100%;
+      background: rgba(35, 35, 59, 0.4);
+      z-index: 3; }
+    .showcase .showcase-secondary {
+      width: 25%;
+      right: 0;
+      bottom: 10%;
+      z-index: 2;
+      background: #FFB561; }
+      .showcase .showcase-secondary p {
+        font-size: 1.5rem;
+        color: #23233b;
+        margin: 0; }
+
+  .about-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 4% 0; }
+    .about-page h1 {
+      margin-bottom: 40px;
+      font-size: 3rem; }
+    .about-page .about-text {
+      width: 45%;
+      font-size: 2rem; }
+      .about-page .about-text p {
+        font-size: 1.5rem; }
+    .about-page .skills-text {
+      width: 45%; }
+      .about-page .skills-text p {
+        font-size: 1.5rem; }
+      .about-page .skills-text ul li {
+        font-size: 1.5rem; }
+    .about-page .skills-logos {
+      margin-left: auto;
+      width: 100%;
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-around; }
+      .about-page .skills-logos i {
+        font-size: 4rem; }
+
+  .projects {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding: 4% 0; }
+    .projects .projects-text {
+      width: 100%;
+      margin-bottom: 30px; }
+      .projects .projects-text h1 {
+        margin-bottom: 20px;
+        font-size: 3rem; }
+      .projects .projects-text p {
+        font-size: 1.5rem; }
+    .projects .item-2 {
+      margin-top: 0; }
+    .projects .project-item {
+      width: 48%; }
+      .projects .project-item .project-item-text h3 {
+        font-size: 2rem; }
+      .projects .project-item .project-item-text p {
+        font-size: 1.5rem; }
+      .projects .project-item .project-item-text span {
+        font-size: 1.5rem; }
+      .projects .project-item .link-github {
+        font-size: 1.5rem;
+        margin: 20px 0; }
+        .projects .project-item .link-github i {
+          font-size: 3rem; }
+
+  .availability-status {
+    padding: 4% 0; }
+    .availability-status .carousel {
+      height: 500px;
+      width: 700px;
+      margin: auto; }
+      .availability-status .carousel .carousel-item .carousel-text {
+        padding: 20px;
+        text-align: center; }
+        .availability-status .carousel .carousel-item .carousel-text p {
+          font-size: 2.5rem; }
+        .availability-status .carousel .carousel-item .carousel-text a {
+          font-size: 1.5rem; }
+
+  .main-footer {
+    padding: 4% 0; }
+    .main-footer p,
+    .main-footer a {
+      font-size: 1.5rem;
+      margin: 30px 0; }
+    .main-footer i {
+      font-size: 3rem; } }
 
 /*# sourceMappingURL=styles.min.css.map */

@@ -1,5 +1,7 @@
-// create slideshow
 const myCarousel = document.querySelector(".carousel");
+const hamburgerBtn = document.querySelector(".navMenu-btn");
+const mainNav = document.querySelector(".main-nav");
+const navLink = document.querySelectorAll(".nav-item");
 
 let slideIndex = 0;
 showSlides();
@@ -16,6 +18,23 @@ function showSlides() {
         slideIndex = 1;
     }
     carouselSlides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 3000);
+    setTimeout(showSlides, 4000);
     
 }
+
+// make nav
+hamburgerBtn.addEventListener('click', ()=> {
+    mainNav.classList.toggle('change');
+})
+
+
+navLink.forEach( function(link){
+    link.addEventListener('click', () => {
+        mainNav.classList.toggle('change');
+    })
+})
+
+
+
+
+// create slideshow
