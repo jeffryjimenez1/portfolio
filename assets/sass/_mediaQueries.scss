@@ -8,12 +8,19 @@
             right: 0;
             z-index: 100;
             color: #fff;
-            
+            background: green;
+            padding: 0;
+            margin: 0;
         }
         .main-nav ul {
             display: flex;
             justify-content: flex-end;
+            align-items: center;
+            padding: 0;
 
+            li {
+                margin: 0;
+            }
             
             .topLink {
                 display: none;
@@ -22,9 +29,10 @@
 
         ul li a {
             color: $white;
-            padding: 25px 0;
+            padding: 15px 0;
             display: inline-block;
             font-size: $fontSizeSmall;
+            margin: 20px;
         }
     }
 }
@@ -37,7 +45,7 @@
         }
 
         .main-nav {
-
+            background: red;
             a {
                 position: relative;
                 transition: all 0.5s ease;
