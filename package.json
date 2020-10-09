@@ -11,5 +11,6 @@
     "portfolio"
   ],
   "author": "Jeffry Jimenez <jeffrey17jt@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {}
 }
