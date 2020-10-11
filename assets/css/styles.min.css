@@ -401,7 +401,10 @@ header {
   .showcase .showcase-text .showcase-btn {
     transition: all 1s ease; }
     .showcase .showcase-text .showcase-btn:hover {
-      background-image: linear-gradient(to right top, #a8566e, #c6686f, #df7e6e, #f3986b, #ffb56b); } }
+      background-image: linear-gradient(to right top, #a8566e, #c6686f, #df7e6e, #f3986b, #ffb56b); }
+  .showcase .showcase-secondary a {
+    color: #23233b;
+    font-size: 1.5rem; } }
 @media only screen and (min-width: 900px) {
   .main-nav ul li a {
     font-size: 1.5rem; }
@@ -409,7 +412,7 @@ header {
   .showcase {
     margin: auto; }
     .showcase .showcase-text {
-      width: 45%;
+      width: 40%;
       left: 30%;
       z-index: 3;
       background: #23233b; }
@@ -425,22 +428,17 @@ header {
         animation-duration: 6s; }
     .showcase .showcase-pic {
       width: 30%; }
-    .showcase .overlay-pic {
-      position: absolute;
-      width: 30%;
-      height: 100%;
-      background: rgba(35, 35, 59, 0.4);
-      z-index: 3; }
     .showcase .showcase-secondary {
-      width: 25%;
+      width: 30%;
       right: 0;
       bottom: 10%;
       z-index: 2;
-      background: #FFB561; }
+      background: #FFB561;
+      padding: 10px; }
       .showcase .showcase-secondary p {
         font-size: 1.5rem;
         color: #23233b;
-        margin: 0; }
+        margin: 0 0 15px 0; }
 
   .about-page {
     display: flex;
