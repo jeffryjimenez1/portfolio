@@ -156,15 +156,20 @@ header {
     bottom: 0;
     position: absolute;
     z-index: 2;
-    background: #23233b;
+    background: linear-gradient(rgba(35, 35, 59, 0.5), rgba(35, 35, 59, 0.5));
     padding: 10px; }
     .showcase .showcase-secondary p {
       color: #fff;
       font-size: 1.2rem;
       margin-top: 15px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       line-height: 1.4;
       letter-spacing: 1.5px; }
+    .showcase .showcase-secondary a {
+      color: #fff;
+      font-size: 1.2rem; }
+    .showcase .showcase-secondary a:visited {
+      color: #fff; }
   .showcase .showcase-pic {
     z-index: 1;
     position: absolute;

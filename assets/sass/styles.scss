@@ -148,7 +148,6 @@ header {
             }
         }
 
-
         h1 {
             //color: $white;
             font-size: 2.5rem;
@@ -176,16 +175,25 @@ header {
         bottom: 0;
         position: absolute;
         z-index: 2;
-        background: $primary-color;
+        background: linear-gradient(rgba(35, 35, 59, 0.5),rgba(35, 35, 59, 0.5));
         padding: 10px;
 
         p {
             color: $white;
             font-size: $fontSizeSmall;
             margin-top: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.4;
             letter-spacing: 1.5px;
+        }
+
+        a {
+            color: $white;
+            font-size: $fontSizeSmall;
+        }
+
+        a:visited {
+            color: $white;
         }
     }
 
