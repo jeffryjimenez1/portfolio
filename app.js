@@ -6,7 +6,6 @@ const titlePortfolio = document.querySelector(".titlePortfolio");
 const subtitleSite = document.querySelector(".subtitleSite");
 const mainPic = document.querySelector(".showcase-pic");
 
-
 let slideIndex = 0;
 showSlides();
 
