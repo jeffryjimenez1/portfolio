@@ -204,6 +204,8 @@ header {
     line-height: 1.4; }
   .projects .item-2 {
     margin-top: 80px; }
+  .projects .project-item a {
+    color: orange; }
   .projects .project-item h3 {
     font-size: 1.2rem;
     margin-top: 20px;
@@ -225,6 +227,8 @@ header {
     background: url("../img/project1.png") no-repeat center/cover; }
   .projects .project-item .project-2 {
     background: url("../img/project2.png") no-repeat center/cover; }
+  .projects .project-item .project-3 {
+    background: url("../img/project3.png") no-repeat center/cover; }
   .projects .project-item .image-overlay {
     position: relative;
     height: 350px;

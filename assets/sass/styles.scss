@@ -236,6 +236,10 @@ header {
         margin-top: 80px;
     }
     .project-item {
+
+            a {
+                color: orange;
+            }
             
             h3 {
                 font-size: $fontSizeSmall;
@@ -264,6 +268,10 @@ header {
 
             .project-2 {
                 background: url("../img/project2.png") no-repeat center/cover;
+            }
+
+            .project-3 {
+                background: url("../img/project3.png") no-repeat center/cover;
             }
 
             .image-overlay {
