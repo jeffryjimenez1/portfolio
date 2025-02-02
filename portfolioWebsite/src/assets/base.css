@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+:root {
+    --main-bg: #0F3D3E;
+    --secondary-bg: #0B2F2F;
+
+    --text-color: #F5F5F5;
+
+    --title-color: #D4AF37;
+
+
+    --btn-bg: #8C7853;
+}
+

@@ -1,0 +1,197 @@
+<script setup>
+
+import {RouterLink} from "vue-router";
+import {ref} from "vue";
+import {useLoadContentStore} from "@/stores/loadContent.js";
+
+const loadContent = useLoadContentStore();
+
+</script>
+
+<template>
+
+  <div class="showcase-wrapper">
+
+
+    <div :class="{'show': loadContent.aboutStatus === true}" class="showcase-text">
+
+      <h1 class="title">Hi, I'm Jeff</h1>
+
+      <p class="description">
+        This is my portfolio website. <br> Here, I want to show you only 1 project.
+      </p>
+      <router-link class="btn" to="/about">Check it out</router-link>
+
+      <div class="transition-wrapper">
+        <transition name="fade">
+          <span v-if="loadContent.homeStatus === true" class="home">This is the home page. lol Just kidding.</span>
+        </transition>
+
+        <br>
+        <transition name="fade">
+          <span v-if="loadContent.contactStatus === true" class="contact email">Email: <a class="email-link" href="mailto:contact@gmail.com">contact@gmail.com</a></span>
+        </transition>
+      </div>
+    </div>
+  </div>
+
+  <Transition name="fade">
+    <div v-if="loadContent.aboutStatus === true" class="showcase-picture">
+
+      <div class="showcase-picture-text">
+
+        <div class="about-text">
+          <h2>ABOUT ME</h2>
+          <p >I’m a developer passionate about building and improving. <br> I love working with Vue.js, Laravel, and Excel, always looking to learn and create better experiences. <br> Beyond coding, I focus on growth—whether in tech, fitness, or life. Always experimenting, always improving.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </Transition>
+
+  <div class="about-picture" v-if="loadContent.contactStatus === false"></div>
+
+</template>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+.showcase-wrapper {
+  height: calc(100vh - 80.91px);
+  position: relative;
+  width: 100%;
+  display: flex;
+  background: var(--main-bg);
+  font-family: 'Roboto', sans-serif;
+}
+
+.showcase-text {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 10;
+  align-self: center;
+  padding: 40px 10px;
+  font-size: 1.2rem;
+
+  .title {
+    font-size: 3rem;
+    color: var(--title-color);
+  }
+
+  .home {
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .description {
+    margin: 50px 0;
+    color: var(--text-color);
+    line-height: 1.8;
+  }
+
+  .btn {
+    background: #0B2F2F;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: var(--text-color);
+    border: 1px #fff solid;
+  }
+}
+
+.showcase-picture {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../assets/jeffryPic.jpg") no-repeat center center;
+  background-size: cover;
+  height: calc(100vh - 80.91px);
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+
+  .about-text {
+    color: var(--text-color);
+    line-height: 1.8;
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+}
+
+.transition-wrapper {
+  width: 100%;
+  height: 20px;
+  margin-top: 30px;
+}
+
+.email, .home {
+  color: var(--text-color);
+}
+
+.email a {
+  color: var(--text-color);
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+@media (min-width: 1000px) {
+  .showcase-wrapper {
+    justify-content: center;
+    height: 100vh;
+
+    .showcase-text {
+      position: static;
+      width: 30%;
+      margin: 0;
+      font-size: 1.5rem;
+      transition: all 1s ease;
+      text-align: center;
+
+      .title {
+        font-size: 5rem;
+      }
+
+      .btn:hover {
+        background: #163020;
+      }
+    }
+
+    .showcase-text.show {
+      transform: translateX(-50%);
+    }
+  }
+
+  .about-picture {
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    right: 0;
+    height: 100vh;
+    width: 50%;
+  }
+
+  .showcase-picture {
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    margin: 0;
+    background-size: cover;
+
+    .about-text {
+      font-size: 1.5rem;
+      width: 70%;
+      margin: auto;
+    }
+  }
+}
+
+</style>
