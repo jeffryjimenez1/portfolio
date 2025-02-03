@@ -45,6 +45,10 @@ const loadContent = useLoadContentStore();
           <p >I’m a developer passionate about building and improving. <br> I love working with Vue.js, Laravel, and Excel, always looking to learn and create better experiences. <br> Beyond coding, I focus on growth—whether in tech, fitness, or life. Always experimenting, always improving.</p>
         </div>
 
+        <transition name="fade">
+          <span v-if="loadContent.contactStatus === true" class="email email-about">Email: <a class="email-link" href="mailto:contact@gmail.com">contact@gmail.com</a></span>
+        </transition>
+
       </div>
 
     </div>
@@ -122,6 +126,7 @@ const loadContent = useLoadContentStore();
     line-height: 1.8;
     padding: 10px;
     font-size: 1.2rem;
+    margin-bottom: 20px;
   }
 }
 
@@ -133,10 +138,18 @@ const loadContent = useLoadContentStore();
 
 .email, .home {
   color: var(--text-color);
+  border: 5px solid var(--title-color);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .email a {
   color: var(--text-color);
+}
+
+.email-about {
+  position: fixed;
+  margin-left: 10px;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -194,6 +207,10 @@ const loadContent = useLoadContentStore();
       font-size: 1.5rem;
       width: 70%;
       margin: auto;
+    }
+
+    .email-about {
+      display: none;
     }
   }
 }

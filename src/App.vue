@@ -11,12 +11,11 @@ const loadContent = useLoadContentStore();
     <header>
 
       <nav>
-        <!--          <RouterLink to="/">Home</RouterLink>-->
-        <!--          <RouterLink to="/about">Contact</RouterLink>-->
-        <button class="contact-btn" @click="loadContent.changeContentStatus('homeStatus')">Home</button>
+
+        <button v-if="loadContent.aboutStatus ===  true" class="contact-btn contact-router" to="/" @click="loadContent.changeContentStatus('aboutStatus')">Home</button>
+        <button v-if="loadContent.aboutStatus ===  false" class="contact-btn" @click="loadContent.changeContentStatus('homeStatus')">Home</button>
         <button class="contact-btn" @click="loadContent.changeContentStatus('contactStatus')">Contact</button>
         <button class="contact-btn" @click="loadContent.changeContentStatus('aboutStatus')">Who Am I</button>
-
       </nav>
 
     </header>
@@ -32,10 +31,12 @@ nav {
   justify-content: space-around;
   padding: 25px 0;
   background: var(--secondary-bg);
+  font-family: 'Roboto', sans-serif;
 }
 
 .contact-btn {
-  font-size: 1.1rem;
+  font-weight: 400;
+  font-size: 20px;
   padding: 5px 10px;
   background: none;
   border-radius: 0;
