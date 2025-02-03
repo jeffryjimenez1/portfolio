@@ -12,6 +12,14 @@ const loadContent = useLoadContentStore();
 
   <div class="showcase-wrapper">
 
+    <div class="floating-icons">
+      <font-awesome-icon class="icon-item icon-php" :icon="['fa-brands', 'fa-php']" /> <!-- Solid Icons -->
+      <font-awesome-icon class="icon-item icon-js" :icon="['fa-brands', 'fa-js']" /> <!-- Brand Icons -->
+      <font-awesome-icon class="icon-item icon-vue" :icon="['fa-brands', 'fa-vuejs']" /> <!-- Regular Icons -->
+      <font-awesome-icon class="icon-item icon-css" :icon="['fa-brands', 'fa-css']" /> <!-- Regular Icons -->
+      <font-awesome-icon class="icon-item icon-laravel" :icon="['fa-brands', 'fa-laravel']" /> <!-- Regular Icons -->
+      <font-awesome-icon class="icon-item icon-npm" :icon="['fa-brands', 'fa-npm']" /> <!-- Regular Icons -->
+    </div>
 
     <div :class="{'show': loadContent.aboutStatus === true}" class="showcase-text">
 
@@ -29,7 +37,7 @@ const loadContent = useLoadContentStore();
 
         <br>
         <transition name="fade">
-          <span v-if="loadContent.contactStatus === true" class="contact email">Email: <a class="email-link" href="mailto:contact@gmail.com">contact@gmail.com</a></span>
+          <span v-if="loadContent.contactStatus === true" class="contact email">Email: <a class="email-link" href="mailto:jeffwebs17@gmail.com">jeffwebs17@gmail.com</a></span>
         </transition>
       </div>
     </div>
@@ -46,7 +54,7 @@ const loadContent = useLoadContentStore();
         </div>
 
         <transition name="fade">
-          <span v-if="loadContent.contactStatus === true" class="email email-about">Email: <a class="email-link" href="mailto:contact@gmail.com">contact@gmail.com</a></span>
+          <span v-if="loadContent.contactStatus === true" class="email email-about">Email: <a class="email-link" href="mailto:jeffwebs17@gmail.com">jeffwebs17@gmail.com</a></span>
         </transition>
 
       </div>
@@ -62,6 +70,11 @@ const loadContent = useLoadContentStore();
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
+@keyframes moveIcon {
+  0% {left: 0px; opacity: 1}
+  50% {left: 80px;}
+  100% {left: 0px; opacity: 0.4}
+}
 
 .showcase-wrapper {
   height: calc(100vh - 80.91px);
@@ -70,6 +83,55 @@ const loadContent = useLoadContentStore();
   display: flex;
   background: var(--main-bg);
   font-family: 'Roboto', sans-serif;
+}
+
+.floating-icons {
+  color: var(--text-color);
+  width: 30%;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .icon-item {
+    position: absolute;
+    animation: moveIcon 5s infinite;
+    left: 0;
+    color: var(--title-color);
+  }
+
+  .icon-php {
+    top: 5%;
+    animation-delay: 1s;
+  }
+
+  .icon-js {
+    top: 15%;
+    animation-delay: 2s;
+  }
+
+  .icon-vue {
+    top: 30%;
+    animation-delay: 3s;
+  }
+
+  .icon-css {
+    top: 45%;
+    animation-delay: 4s;
+  }
+
+  .icon-laravel {
+    top: 60%;
+    animation-delay: 5s;
+  }
+
+  .icon-npm {
+    top: 75%;
+    animation-delay: 6s;
+  }
 }
 
 .showcase-text {
@@ -159,10 +221,26 @@ const loadContent = useLoadContentStore();
   opacity: 0;
 }
 
+
 @media (min-width: 1000px) {
+
+  @keyframes moveIcon {
+    0% {left: 0px; opacity: 1}
+    50% {left: 200px;}
+    100% {left: 0px; opacity: 0.4}
+  }
+
   .showcase-wrapper {
     justify-content: center;
     height: 100vh;
+
+    .floating-icons {
+      width: 30%;
+    }
+
+    .icon-item {
+      font-size: 2.5rem;
+    }
 
     .showcase-text {
       position: static;
