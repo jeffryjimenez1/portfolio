@@ -98,7 +98,7 @@ const loadContent = useLoadContentStore();
 
   .icon-item {
     position: absolute;
-    animation: moveIcon 5s infinite;
+    animation: moveIcon 3s infinite;
     left: 0;
     color: var(--title-color);
   }
@@ -238,6 +238,7 @@ const loadContent = useLoadContentStore();
     }
 
     .icon-item {
+      animation-duration: 5s;
       font-size: 2.5rem;
     }
 
