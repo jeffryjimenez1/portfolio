@@ -105,32 +105,31 @@ const loadContent = useLoadContentStore();
 
   .icon-php {
     top: 5%;
-    animation-delay: 1s;
   }
 
   .icon-js {
     top: 15%;
-    animation-delay: 2s;
+    animation-delay: 1s;
   }
 
   .icon-vue {
     top: 30%;
-    animation-delay: 3s;
+    animation-delay: 2s;
   }
 
   .icon-css {
     top: 45%;
-    animation-delay: 4s;
+    animation-delay: 3s;
   }
 
   .icon-laravel {
     top: 60%;
-    animation-delay: 5s;
+    animation-delay: 4s;
   }
 
   .icon-npm {
     top: 75%;
-    animation-delay: 6s;
+    animation-delay: 5s;
   }
 }
 
