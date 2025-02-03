@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url';
-
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueDevTools from 'vite-plugin-vue-devtools';
@@ -15,21 +14,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  base: './', // Ensures relative paths for assets in production
+  base: '/', // Ensures relative paths for assets in production
   build: {
-    outDir: 'dist', // Output directory for build (default is 'dist')
+    outDir: 'dist', // Ensure the output directory aligns with your Netlify settings
     rollupOptions: {
-      output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            return 'vendor'; // Separates vendor code for better caching
-          }
-        },
-      },
+      external: [],
     },
-  },
-  server: {
-    host: true, // Allows external access for local testing
-    port: 3000, // Customize your dev server port if needed
+    commonjsOptions: {
+      include: [/node_modules/], // Ensure CommonJS dependencies like Vue are bundled
+    },
   },
 });
