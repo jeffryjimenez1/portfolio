@@ -1,8 +1,9 @@
 <script setup>
 
 import {RouterLink} from "vue-router";
-import {ref} from "vue";
 import {useLoadContentStore} from "@/stores/loadContent.js";
+import About from "@/components/About.vue";
+import Projects from "@/components/Projects.vue";
 
 const loadContent = useLoadContentStore();
 
@@ -13,15 +14,16 @@ const loadContent = useLoadContentStore();
   <div class="showcase-wrapper">
 
     <div class="floating-icons">
-      <font-awesome-icon class="icon-item icon-php" :icon="['fa-brands', 'fa-php']" /> <!-- Solid Icons -->
-      <font-awesome-icon class="icon-item icon-js" :icon="['fa-brands', 'fa-js']" /> <!-- Brand Icons -->
-      <font-awesome-icon class="icon-item icon-vue" :icon="['fa-brands', 'fa-vuejs']" /> <!-- Regular Icons -->
-      <font-awesome-icon class="icon-item icon-css" :icon="['fa-brands', 'fa-css']" /> <!-- Regular Icons -->
-      <font-awesome-icon class="icon-item icon-laravel" :icon="['fa-brands', 'fa-laravel']" /> <!-- Regular Icons -->
-      <font-awesome-icon class="icon-item icon-npm" :icon="['fa-brands', 'fa-npm']" /> <!-- Regular Icons -->
+      <font-awesome-icon class="icon-item icon-php" :icon="['fa-brands', 'fa-php']" />
+      <font-awesome-icon class="icon-item icon-js" :icon="['fa-brands', 'fa-js']" />
+      <font-awesome-icon class="icon-item icon-vue" :icon="['fa-brands', 'fa-vuejs']" />
+      <font-awesome-icon class="icon-item icon-css" :icon="['fa-brands', 'fa-css']" />
+      <font-awesome-icon class="icon-item icon-laravel" :icon="['fa-brands', 'fa-laravel']" />
+      <font-awesome-icon class="icon-item icon-npm" :icon="['fa-brands', 'fa-npm']" />
     </div>
 
-    <div :class="{'show': loadContent.aboutStatus === true}" class="showcase-text">
+    <div :class="{'show': loadContent.aboutStatus === true,
+   'show-right': loadContent.projectStatus === true}" class="showcase-text">
 
       <h1 class="title">Hi, I'm Jeff</h1>
 
@@ -44,25 +46,12 @@ const loadContent = useLoadContentStore();
   </div>
 
   <Transition name="fade">
-    <div v-if="loadContent.aboutStatus === true" class="showcase-picture">
-
-      <div class="showcase-picture-text">
-
-        <div class="about-text">
-          <h2>ABOUT ME</h2>
-          <p >I’m a developer passionate about building and improving. <br> I love working with Vue.js, Laravel, and Excel, always looking to learn and create better experiences. <br> Beyond coding, I focus on growth—whether in tech, fitness, or life. Always experimenting, always improving.</p>
-        </div>
-
-        <transition name="fade">
-          <span v-if="loadContent.contactStatus === true" class="email email-about">Email: <a class="email-link" href="mailto:jeffwebs17@gmail.com">jeffwebs17@gmail.com</a></span>
-        </transition>
-
-      </div>
-
-    </div>
+    <About/>
   </Transition>
 
-  <div class="about-picture" v-if="loadContent.contactStatus === false"></div>
+  <Transition name="fade">
+    <Projects/>
+  </Transition>
 
 </template>
 
@@ -171,26 +160,6 @@ const loadContent = useLoadContentStore();
   }
 }
 
-.showcase-picture {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../assets/jeffryPic.jpg") no-repeat center center;
-  background-size: cover;
-  height: calc(100vh - 80.91px);
-  width: 100%;
-  position: absolute;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-
-  .about-text {
-    color: var(--text-color);
-    line-height: 1.8;
-    padding: 10px;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-}
-
 .transition-wrapper {
   width: 100%;
   height: 20px;
@@ -208,25 +177,15 @@ const loadContent = useLoadContentStore();
   color: var(--text-color);
 }
 
-.email-about {
-  position: fixed;
-  margin-left: 10px;
-}
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
-}
 
 
 @media (min-width: 1000px) {
 
   @keyframes moveIcon {
-    0% {left: 0px; opacity: 1}
+    0% {left: 0; opacity: 1}
     50% {left: 200px;}
-    100% {left: 0px; opacity: 0.4}
+    100% {left: 0; opacity: 0.4}
   }
 
   .showcase-wrapper {
@@ -262,35 +221,14 @@ const loadContent = useLoadContentStore();
     .showcase-text.show {
       transform: translateX(-50%);
     }
-  }
 
-  .about-picture {
-    position: absolute;
-    top: 0;
-    background-size: cover;
-    right: 0;
-    height: 100vh;
-    width: 50%;
-  }
-
-  .showcase-picture {
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100vh;
-    margin: 0;
-    background-size: cover;
-
-    .about-text {
-      font-size: 1.5rem;
-      width: 70%;
-      margin: auto;
-    }
-
-    .email-about {
-      display: none;
+    .showcase-text.show-right {
+      transform: translateX(50%);
     }
   }
+
+
+
 }
 
 </style>

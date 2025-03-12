@@ -20,7 +20,6 @@ main {
   height: calc(100vh - 90px);
   justify-content: center;
   align-items: center;
-  background: red;
 }
 
 @media (min-width: 1024px) {

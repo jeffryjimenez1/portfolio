@@ -4,12 +4,13 @@ export const useLoadContentStore = defineStore('loadContent', {
     state: () => ({
         aboutStatus: false,
         homeStatus: false,
-        contactStatus: false
+        contactStatus: false,
+        projectStatus: false
     }),
     actions: {
         changeContentStatus(item){
-            if (item in this) { // Ensure the key exists in the store
-                this[item] = !this[item]; // Toggle the property dynamically
+            if (item in this) {
+                this[item] = !this[item];
             }
         }
     }

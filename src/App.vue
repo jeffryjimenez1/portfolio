@@ -4,6 +4,10 @@ import {useLoadContentStore} from "@/stores/loadContent.js";
 
 const loadContent = useLoadContentStore();
 
+function changeStatus(){
+  loadContent.projectStatus = false;
+  loadContent.aboutStatus = false
+}
 
 </script>
 
@@ -11,11 +15,11 @@ const loadContent = useLoadContentStore();
     <header>
 
       <nav>
-
-        <button v-if="loadContent.aboutStatus ===  true" class="contact-btn contact-router" to="/" @click="loadContent.changeContentStatus('aboutStatus')">Home</button>
-        <button v-if="loadContent.aboutStatus ===  false" class="contact-btn" @click="loadContent.changeContentStatus('homeStatus')">Home</button>
+        <button v-if="loadContent.aboutStatus ===  true || loadContent.projectStatus ===  true" class="contact-btn contact-router" to="/" @click="changeStatus()">Home</button>
+        <button v-if="loadContent.aboutStatus ===  false && loadContent.projectStatus ===  false" class="contact-btn" @click="loadContent.changeContentStatus('homeStatus')">Home</button>
         <button class="contact-btn" @click="loadContent.changeContentStatus('contactStatus')">Contact</button>
         <button class="contact-btn" @click="loadContent.changeContentStatus('aboutStatus')">Who Am I</button>
+        <button class="contact-btn" @click="loadContent.changeContentStatus('projectStatus')">Projects</button>
       </nav>
 
     </header>
