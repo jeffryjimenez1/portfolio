@@ -44,7 +44,7 @@ const projects = ref([
   </div>
 </template>
 
-<style scoped>
+<style>
 .fade-enter-active, .fade-leave-active {
   transition: opacity 1s ease, transform 1s ease;
 }
@@ -52,21 +52,64 @@ const projects = ref([
   opacity: 0;
 }
 
+.projects {
+  background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("../components/img/projects.JPG");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  padding: 20px;
+  width: 100%;
+  height: 100vh;
+  z-index: 2000;
+}
+
+.projects-text {
+  width: 100%;
+}
+
+.swiper-container {
+  width: 100%;
+  margin: auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  display: none;
+}
+
+/* ✅ Adjust position of arrows */
+.swiper-button-prev {
+  left: -10px;
+}
+
+.swiper-button-next {
+  right: -10px;
+}
+
+/* ✅ Swiper pagination dots */
+.swiper-pagination-bullet {
+  background-color: white !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+  opacity: 1;
+}
 
 @media (min-width: 1000px) {
 
   .projects {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f9f9f9;
-    padding: 20px;
-  }
-
-  .projects {
-    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("../components/img/projects.JPG");
-    background-position: center;
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,24 +138,32 @@ const projects = ref([
   .swiper-button-prev,
   .swiper-button-next {
     color: white; /* Change arrow color */
-    background: rgba(0, 0, 0, 0.5); /* Add a background */
+    background: none; /* Add a background */
     padding: 10px;
     border-radius: 50%;
     transition: background 0.3s ease;
   }
 
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    display: flex;
+    width: 100px;
+    padding: 10px;
+  }
+
   .swiper-button-prev:hover,
   .swiper-button-next:hover {
-    background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+    background: none; /* Darker background on hover */
   }
 
   /* ✅ Adjust position of arrows */
   .swiper-button-prev {
-    left: -10px;
+    left: 10px;
+    border-radius: 100%;
   }
 
   .swiper-button-next {
-    right: -10px;
+    right: 10px;
   }
 
   /* ✅ Swiper pagination dots */

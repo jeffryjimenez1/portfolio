@@ -29,7 +29,7 @@ const loadContent = useLoadContentStore();
 .showcase-picture {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../assets/jeffryPic.jpg") no-repeat center center;
   background-size: cover;
-  height: calc(100vh - 80.91px);
+  height: 100vh;
   width: 100%;
   position: absolute;
   z-index: 100;

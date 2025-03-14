@@ -66,7 +66,7 @@ const loadContent = useLoadContentStore();
 }
 
 .showcase-wrapper {
-  height: calc(100vh - 80.91px);
+  height: 100vh;
   position: relative;
   width: 100%;
   display: flex;

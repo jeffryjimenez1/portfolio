@@ -1,12 +1,26 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import {useLoadContentStore} from "@/stores/loadContent.js";
+import {ref} from "vue";
 
 const loadContent = useLoadContentStore();
 
+
+let showMenu = ref(false);
+
+function toggleMenu(){
+  return showMenu.value = !showMenu.value;
+}
+
+function navCallStore(store){
+  loadContent.changeContentStatus(store)
+  toggleMenu()
+}
+
 function changeStatus(){
   loadContent.projectStatus = false;
-  loadContent.aboutStatus = false
+  loadContent.aboutStatus = false;
+  toggleMenu()
 }
 
 </script>
@@ -14,13 +28,29 @@ function changeStatus(){
 <template>
     <header>
 
-      <nav>
-        <button v-if="loadContent.aboutStatus ===  true || loadContent.projectStatus ===  true" class="contact-btn contact-router" to="/" @click="changeStatus()">Home</button>
-        <button v-if="loadContent.aboutStatus ===  false && loadContent.projectStatus ===  false" class="contact-btn" @click="loadContent.changeContentStatus('homeStatus')">Home</button>
-        <button class="contact-btn" @click="loadContent.changeContentStatus('contactStatus')">Contact</button>
-        <button class="contact-btn" @click="loadContent.changeContentStatus('aboutStatus')">Who Am I</button>
-        <button class="contact-btn" @click="loadContent.changeContentStatus('projectStatus')">Projects</button>
+      <transition name="fade">
+        <nav class="main-nav" v-if="showMenu">
+          <button v-if="loadContent.aboutStatus ===  true || loadContent.projectStatus ===  true" class="contact-btn contact-router" to="/" @click="changeStatus(changeStatus)">Home</button>
+          <button v-if="loadContent.aboutStatus ===  false && loadContent.projectStatus ===  false" class="contact-btn" @click="navCallStore('homeStatus')">Home</button>
+          <button class="contact-btn" @click="navCallStore('contactStatus')">Contact</button>
+          <button class="contact-btn" @click="navCallStore('aboutStatus')">Who Am I</button>
+          <button class="contact-btn" @click="navCallStore('projectStatus')">Projects</button>
+        </nav>
+      </transition>
+
+      <nav class="big-nav">
+        <button v-if="loadContent.aboutStatus ===  true || loadContent.projectStatus ===  true" class="contact-btn contact-router" to="/" @click="changeStatus(changeStatus)">Home</button>
+        <button v-if="loadContent.aboutStatus ===  false && loadContent.projectStatus ===  false" class="contact-btn" @click="navCallStore('homeStatus')">Home</button>
+        <button class="contact-btn" @click="navCallStore('contactStatus')">Contact</button>
+        <button class="contact-btn" @click="navCallStore('aboutStatus')">Who Am I</button>
+        <button class="contact-btn" @click="navCallStore('projectStatus')">Projects</button>
       </nav>
+
+      <div @click="toggleMenu()" class="hamburger-menu">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </div>
 
     </header>
 
@@ -29,19 +59,57 @@ function changeStatus(){
 
 <style scoped>
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.big-nav {
+  display: none;
+}
+
 nav {
+  position: fixed;
+  top: 0;
+  z-index: 2500;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  padding: 25px 0;
+  padding: 0;
   background: var(--secondary-bg);
   font-family: 'Roboto', sans-serif;
 }
 
+
+.hamburger-menu {
+  position: fixed;
+  z-index: 3000;
+  top: 15px;
+  right: 5px;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .line {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+  }
+}
+
 .contact-btn {
+  width: 100%;
   font-weight: 400;
   font-size: 20px;
-  padding: 5px 10px;
+  padding: 20px 10px;
   background: none;
   border-radius: 0;
   border-top: 0;
@@ -55,14 +123,29 @@ nav {
   header {
     width: 100%;
 
+    .main-nav {
+      display: none;
+    }
+
+    .hamburger-menu {
+      display: none;
+    }
+
+    .big-nav {
+      display: flex;
+    }
+
     nav {
       justify-content: center;
       width: 100%;
+      flex-wrap: nowrap;
       background: none;
       z-index: 10000;
       position: absolute;
+      padding: 20px 0;
 
       .contact-btn {
+        width: auto;
         margin: 0 40px;
         background: none;
         border: none;
@@ -117,6 +200,7 @@ nav {
         border-top: 5px solid transparent;
       }
     }
+
   }
 
 }

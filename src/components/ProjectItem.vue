@@ -36,6 +36,42 @@ const imageUrl = computed(() => {
 
 <style scoped>
 
+.project-item {
+  border-radius: 20px;
+  width: 100%;
+  background: #0B2F2F;
+  color: #fff;
+
+  .image {
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: 1%;
+  }
+
+  .project-text {
+
+    padding: 10px;
+
+    .description {
+      margin: 20px 0;
+      font-size: 1.3rem;
+    }
+
+    .project-link {
+      font-size: 1.2rem;
+      color: #fff;
+      border-bottom: 2px yellow solid;
+    }
+
+  }
+
+
+}
+
+
+
 
 @media (min-width: 1000px) {
 
@@ -53,8 +89,6 @@ const imageUrl = computed(() => {
     }
 
     .project-text {
-
-      padding: 20px;
 
       .description {
         margin: 20px 0;
