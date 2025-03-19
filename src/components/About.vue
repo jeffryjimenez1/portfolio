@@ -6,7 +6,7 @@ const loadContent = useLoadContentStore();
 </script>
 
 <template>
-  <div v-if="loadContent.aboutStatus === true" class="showcase-picture">
+  <div v-if="loadContent.aboutStatus" class="showcase-picture">
 
     <div class="showcase-picture-text">
 
@@ -32,7 +32,7 @@ const loadContent = useLoadContentStore();
   height: 100vh;
   width: 100%;
   position: absolute;
-  z-index: 100;
+  z-index: 2000;
   display: flex;
   align-items: center;
   font-family: 'Roboto', sans-serif;

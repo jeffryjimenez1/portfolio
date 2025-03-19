@@ -30,8 +30,7 @@ function changeStatus(){
 
       <transition name="fade">
         <nav class="main-nav" v-if="showMenu">
-          <button v-if="loadContent.aboutStatus ===  true || loadContent.projectStatus ===  true" class="contact-btn contact-router" to="/" @click="changeStatus(changeStatus)">Home</button>
-          <button v-if="loadContent.aboutStatus ===  false && loadContent.projectStatus ===  false" class="contact-btn" @click="navCallStore('homeStatus')">Home</button>
+          <button class="contact-btn contact-router" to="/" @click="changeStatus(changeStatus)">Home</button>
           <button class="contact-btn" @click="navCallStore('contactStatus')">Contact</button>
           <button class="contact-btn" @click="navCallStore('aboutStatus')">Who Am I</button>
           <button class="contact-btn" @click="navCallStore('projectStatus')">Projects</button>
@@ -39,8 +38,7 @@ function changeStatus(){
       </transition>
 
       <nav class="big-nav">
-        <button v-if="loadContent.aboutStatus ===  true || loadContent.projectStatus ===  true" class="contact-btn contact-router" to="/" @click="changeStatus(changeStatus)">Home</button>
-        <button v-if="loadContent.aboutStatus ===  false && loadContent.projectStatus ===  false" class="contact-btn" @click="navCallStore('homeStatus')">Home</button>
+        <button class="contact-btn contact-router" to="/" @click="changeStatus(changeStatus)">Home</button>
         <button class="contact-btn" @click="navCallStore('contactStatus')">Contact</button>
         <button class="contact-btn" @click="navCallStore('aboutStatus')">Who Am I</button>
         <button class="contact-btn" @click="navCallStore('projectStatus')">Projects</button>

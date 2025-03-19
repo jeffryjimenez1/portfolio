@@ -17,9 +17,10 @@ import Showcase from '../components/Showcase.vue';
 main {
   display: flex;
   width: 100%;
-  height: calc(100vh - 90px);
+  height: 100vh;
   justify-content: center;
   align-items: center;
+  overflow-y: hidden;
 }
 
 @media (min-width: 1024px) {

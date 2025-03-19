@@ -19,7 +19,7 @@ const projects = ref([
 </script>
 
 <template>
-  <div v-if="loadContent.projectStatus === true" class="projects">
+  <div v-if="loadContent.projectStatus" class="projects">
 
     <div class="projects-text">
 
@@ -59,7 +59,6 @@ const projects = ref([
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
   padding: 20px;
   width: 100%;
   height: 100vh;
