@@ -7,7 +7,9 @@ import Showcase from '../components/Showcase.vue';
 <template>
   <main>
 
-    <Showcase/>
+   <transition name="fade">
+     <Showcase/>
+   </transition>
 
   </main>
 </template>

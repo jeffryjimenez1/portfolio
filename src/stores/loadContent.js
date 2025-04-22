@@ -2,16 +2,14 @@ import { defineStore } from 'pinia'
 
 export const useLoadContentStore = defineStore('loadContent', {
     state: () => ({
-        aboutStatus: false,
-        homeStatus: false,
-        contactStatus: false,
-        projectStatus: false
+        activeSection: null
     }),
     actions: {
-        changeContentStatus(item){
-            if (item in this) {
-                this[item] = !this[item];
-            }
+        setActiveSection(section) {
+            this.activeSection = section
+        },
+        clearActiveSection() {
+            this.activeSection = null
         }
     }
 });

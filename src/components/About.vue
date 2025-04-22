@@ -6,7 +6,7 @@ const loadContent = useLoadContentStore();
 </script>
 
 <template>
-  <div v-if="loadContent.aboutStatus" class="showcase-picture">
+  <div v-if="loadContent.activeSection === 'about'" class="showcase-picture">
 
     <div class="showcase-picture-text">
 
@@ -16,7 +16,7 @@ const loadContent = useLoadContentStore();
       </div>
 
       <transition name="fade">
-        <span v-if="loadContent.contactStatus === true" class="email email-about">Email: <a class="email-link" href="mailto:jeffwebs17@gmail.com">jeffwebs17@gmail.com</a></span>
+        <span v-if="loadContent.activeSection === 'about'" class="email email-about"><a class="email-link" href="mailto:jeffwebs17@gmail.com">jeffwebs17@gmail.com</a></span>
       </transition>
 
     </div>
@@ -44,12 +44,20 @@ const loadContent = useLoadContentStore();
     font-size: 1.2rem;
     margin-bottom: 20px;
   }
+
+  .email-about {
+    border: 2px solid #D4AF37;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+    a {
+      color: #fff;
+    }
+  }
 }
 
-.email-about {
-  position: fixed;
-  margin-left: 10px;
-}
+
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 1s ease;

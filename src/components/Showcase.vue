@@ -1,233 +1,170 @@
 <script setup>
-
-import {RouterLink} from "vue-router";
-import {useLoadContentStore} from "@/stores/loadContent.js";
+import { RouterLink } from "vue-router";
+import { useLoadContentStore } from "@/stores/loadContent.js";
 import About from "@/components/About.vue";
 import Projects from "@/components/Projects.vue";
 
 const loadContent = useLoadContentStore();
-
 </script>
 
 <template>
-
-  <div class="showcase-wrapper">
+  <div class="showcase-wrapper bg-blue-400">
 
     <div class="floating-icons">
       <font-awesome-icon class="icon-item icon-php" :icon="['fa-brands', 'fa-php']" />
       <font-awesome-icon class="icon-item icon-js" :icon="['fa-brands', 'fa-js']" />
       <font-awesome-icon class="icon-item icon-vue" :icon="['fa-brands', 'fa-vuejs']" />
-      <font-awesome-icon class="icon-item icon-css" :icon="['fa-brands', 'fa-css']" />
+      <font-awesome-icon class="icon-item icon-css" :icon="['fa-brands', 'fa-css3-alt']" />
       <font-awesome-icon class="icon-item icon-laravel" :icon="['fa-brands', 'fa-laravel']" />
       <font-awesome-icon class="icon-item icon-npm" :icon="['fa-brands', 'fa-npm']" />
     </div>
 
-    <div :class="{'show': loadContent.aboutStatus === true,
-   'show-right': loadContent.projectStatus === true}" class="showcase-text">
+    <!-- Text + slide transitions -->
+    <div :class="{ 'show-left': loadContent.activeSection === 'about','show-right': loadContent.activeSection === 'projects'}" class="showcase-text">
 
-      <h1 class="title">Hi, I'm Jeff</h1>
+    <h1 class="title">Hi, I'm Jeff</h1>
 
       <p class="description">
-        This is my portfolio website. <br> Here, I want to show you only 1 project.
+        <span>Web developer</span>
       </p>
-      <router-link class="btn" to="/about">Check it out</router-link>
 
       <div class="transition-wrapper">
         <transition name="fade">
-          <span v-if="loadContent.homeStatus === true" class="home">This is the home page. lol Just kidding.</span>
-        </transition>
-
-        <br>
-        <transition name="fade">
-          <span v-if="loadContent.contactStatus === true" class="contact email">Email: <a class="email-link" href="mailto:jeffwebs17@gmail.com">jeffwebs17@gmail.com</a></span>
+          <span
+              v-if="loadContent.activeSection === 'contact'"
+              class="contact email"
+          >
+            <a class="email-link" href="mailto:jeffwebs17@gmail.com">
+              jeffwebs17@gmail.com
+            </a>
+          </span>
         </transition>
       </div>
     </div>
   </div>
 
-  <Transition name="fade">
-    <About/>
-  </Transition>
+  <transition name="fade">
+    <About v-if="loadContent.activeSection"/>
+  </transition>
 
-  <Transition name="fade">
-    <Projects/>
-  </Transition>
+  <transition name="fade">
+    <Projects v-if="loadContent.activeSection"/>
+  </transition>
 
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-@keyframes moveIcon {
-  0% {left: 0px; opacity: 1}
-  50% {left: 80px;}
-  100% {left: 0px; opacity: 0.4}
-}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@100..900&display=swap');
 
 .showcase-wrapper {
-  position: relative;
+  background: #0B2F2F;
   height: 100vh;
   width: 100%;
   display: flex;
-  background: var(--main-bg);
+  align-items: center;
+  justify-content: center;
+  position: relative;
   font-family: 'Roboto', sans-serif;
 }
 
-.floating-icons {
-  color: var(--text-color);
-  width: 30%;
-  position: absolute;
-  right: 0;
-  height: 100%;
-  font-size: 1.6rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
-  .icon-item {
-    position: absolute;
-    animation: moveIcon 3s infinite;
-    left: 0;
-    color: var(--title-color);
-  }
-
-  .icon-php {
-    top: 5%;
-  }
-
-  .icon-js {
-    top: 15%;
-    animation-delay: 1s;
-  }
-
-  .icon-vue {
-    top: 30%;
-    animation-delay: 2s;
-  }
-
-  .icon-css {
-    top: 45%;
-    animation-delay: 3s;
-  }
-
-  .icon-laravel {
-    top: 60%;
-    animation-delay: 4s;
-  }
-
-  .icon-npm {
-    top: 75%;
-    animation-delay: 5s;
-  }
-}
-
 .showcase-text {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  z-index: 10;
-  align-self: center;
-  padding: 40px 10px;
-  font-size: 1.2rem;
-
+  margin: 0;
   .title {
-    font-size: 3rem;
-    color: var(--title-color);
-    user-select: none; /* Standard */
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-  }
-
-  .home {
-    margin-bottom: 20px;
-    display: inline-block;
+    color: #D4AF37;
+    font-family: 'Bebas Neue', sans-serif;
   }
 
   .description {
-    margin: 50px 0;
-    color: var(--text-color);
-    line-height: 1.8;
-  }
-
-  .btn {
-    background: #0B2F2F;
-    padding: 5px 15px;
-    border-radius: 5px;
-    color: var(--text-color);
-    border: 1px #fff solid;
+    color: #fff;
+    margin: 10px 0;
   }
 }
 
-.transition-wrapper {
-  width: 100%;
-  height: 20px;
-  margin-top: 30px;
-}
-
-.email, .home {
-  color: var(--text-color);
-  border: 5px solid var(--title-color);
+.contact {
+  border: 2px solid #D4AF37;
+  color: #fff;
   padding: 10px;
-  border-radius: 5px;
+  position: absolute;
+  transform: translateX(50%);
+  right: 50%;
+  border-radius: 10px;
+  a {
+    color: #fff;
+  }
 }
 
-.email a {
-  color: var(--text-color);
+.floating-icons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px 0;
+  z-index: 5000;
 }
 
+.icon-item {
+  font-size: 2rem;
+  animation: snakeSide 5s ease-in-out infinite;
+  opacity: 0;
+  color: #51805c;
+}
+
+/* Snake delay: staggering animation for snake effect */
+.icon-item:nth-child(1) { animation-delay: 0s; }
+.icon-item:nth-child(2) { animation-delay: 0.3s; }
+.icon-item:nth-child(3) { animation-delay: 0.6s; }
+.icon-item:nth-child(4) { animation-delay: 0.9s; }
+.icon-item:nth-child(5) { animation-delay: 1.2s; }
+.icon-item:nth-child(6) { animation-delay: 1.5s; }
+
+@keyframes snakeSide {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
 
 
 
 @media (min-width: 1000px) {
 
-  @keyframes moveIcon {
-    0% {left: 0; opacity: 1}
-    50% {left: 200px;}
-    100% {left: 0; opacity: 0.4}
+  .icon-item {
+    font-size: 3rem;
   }
 
-  .showcase-wrapper {
-    justify-content: center;
-    height: 100vh;
-
-    .floating-icons {
-      width: 30%;
-    }
-
-    .icon-item {
-      animation-duration: 5s;
-      font-size: 2.5rem;
-    }
-
-    .showcase-text {
-      position: static;
-      width: 30%;
-      margin: 0;
-      font-size: 1.5rem;
-      transition: all 1s ease;
-      text-align: center;
-
-      .title {
-        font-size: 5rem;
-      }
-
-      .btn:hover {
-        background: #163020;
-      }
-    }
-
-    .showcase-text.show {
-      transform: translateX(-50%);
-    }
-
-    .showcase-text.show-right {
-      transform: translateX(50%);
+  .showcase-text {
+    transition: all 1s ease;
+    .description {
+      margin: 20px 0;
     }
   }
 
+  .showcase-text.show-left {
+    transform: translateX(-80%);
+  }
 
+  .showcase-text.show-right {
+    transform: translateX(80%);
+  }
+
+  .contact {
+    border: 3px solid #D4AF37;
+  }
 
 }
 

@@ -19,6 +19,21 @@ export default defineConfig({
     outDir: 'dist', // Ensure the output directory aligns with your Netlify settings
     rollupOptions: {
       external: [],
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('vue')) {
+                return 'vue';
+              }
+              if (id.includes('fontawesome')) {
+                return 'fontawesome';
+              }
+              return 'vendor';
+            }
+          },
+        },
+      },
     },
     commonjsOptions: {
       include: [/node_modules/], // Ensure CommonJS dependencies like Vue are bundled

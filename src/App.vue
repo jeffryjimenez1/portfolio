@@ -1,59 +1,57 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import {useLoadContentStore} from "@/stores/loadContent.js";
-import {ref} from "vue";
+import { useLoadContentStore } from "@/stores/loadContent.js";
+import { ref } from "vue";
 
 const loadContent = useLoadContentStore();
 
-
 let showMenu = ref(false);
 
-function toggleMenu(){
-  return showMenu.value = !showMenu.value;
+function toggleMenu() {
+  showMenu.value = !showMenu.value;
 }
 
-function navCallStore(store){
-  loadContent.changeContentStatus(store)
-  toggleMenu()
+function showSection(sectionKey) {
+  loadContent.activeSection = sectionKey;
+  showMenu.value = false;
 }
 
-function changeStatus(){
-  loadContent.projectStatus = false;
-  loadContent.aboutStatus = false;
-  toggleMenu()
+function goHome() {
+  loadContent.activeSection = null;
+  showMenu.value = false;
 }
-
 </script>
 
+
 <template>
-    <header>
-
-      <transition name="fade">
-        <nav class="main-nav" v-if="showMenu">
-          <button class="contact-btn contact-router" to="/" @click="changeStatus(changeStatus)">Home</button>
-          <button class="contact-btn" @click="navCallStore('contactStatus')">Contact</button>
-          <button class="contact-btn" @click="navCallStore('aboutStatus')">Who Am I</button>
-          <button class="contact-btn" @click="navCallStore('projectStatus')">Projects</button>
-        </nav>
-      </transition>
-
-      <nav class="big-nav">
-        <button class="contact-btn contact-router" to="/" @click="changeStatus(changeStatus)">Home</button>
-        <button class="contact-btn" @click="navCallStore('contactStatus')">Contact</button>
-        <button class="contact-btn" @click="navCallStore('aboutStatus')">Who Am I</button>
-        <button class="contact-btn" @click="navCallStore('projectStatus')">Projects</button>
+  <header>
+    <!-- MOBILE MENU -->
+    <transition name="fade">
+      <nav class="main-nav" v-if="showMenu">
+        <button class="contact-btn contact-router" @click="goHome()">Home</button>
+        <button class="contact-btn" @click="showSection('contact')">Contact</button>
+        <button class="contact-btn" @click="showSection('about')">Who Am I</button>
+        <button class="contact-btn" @click="showSection('projects')">Projects</button>
       </nav>
+    </transition>
 
-      <div @click="toggleMenu()" class="hamburger-menu">
-        <div class="line line-1"></div>
-        <div class="line line-2"></div>
-        <div class="line line-3"></div>
-      </div>
+    <nav class="big-nav">
+      <button class="contact-btn contact-router" @click="goHome()">Home</button>
+      <button class="contact-btn" @click="showSection('contact')">Contact</button>
+      <button class="contact-btn" @click="showSection('about')">Who Am I</button>
+      <button class="contact-btn" @click="showSection('projects')">Projects</button>
+    </nav>
 
-    </header>
+    <div @click="toggleMenu()" class="hamburger-menu">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+    </div>
+  </header>
+
 
   <RouterView />
 </template>
+
 
 <style scoped>
 

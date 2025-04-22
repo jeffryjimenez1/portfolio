@@ -19,7 +19,7 @@ const projects = ref([
 </script>
 
 <template>
-  <div v-if="loadContent.projectStatus" class="projects">
+  <div v-if="loadContent.activeSection === 'projects'" class="projects">
 
     <div class="projects-text">
 
@@ -63,6 +63,8 @@ const projects = ref([
   width: 100%;
   height: 100vh;
   z-index: 2000;
+  margin: 0;
+  position: absolute;
 }
 
 .projects-text {
