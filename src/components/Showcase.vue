@@ -99,7 +99,7 @@ const loadContent = useLoadContentStore();
   justify-content: center;
   gap: 20px;
   position: absolute;
-  bottom: 0;
+  bottom: 50px;
   right: 0;
   padding: 20px 0;
   z-index: 5000;
