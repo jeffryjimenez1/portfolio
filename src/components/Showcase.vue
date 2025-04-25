@@ -20,27 +20,27 @@ const loadContent = useLoadContentStore();
     </div>
 
     <!-- Text + slide transitions -->
-    <div :class="{ 'show-left': loadContent.activeSection === 'about','show-right': loadContent.activeSection === 'projects'}" class="showcase-text">
-
-    <h1 class="title">Hi, I'm Jeff</h1>
-
-      <p class="description">
-        <span>Web developer</span>
-      </p>
+    <div
+        :class="{ 'show-left': loadContent.activeSection === 'about', 'show-right': loadContent.activeSection === 'projects' }"
+        class="showcase-text animated-intro"
+    >
+      <h1 class="title">Hi, I'm Jeff</h1>
+      <p class="description"><span>Web developer</span></p>
 
       <div class="transition-wrapper">
         <transition name="fade">
-          <span
-              v-if="loadContent.activeSection === 'contact'"
-              class="contact email"
-          >
-            <a class="email-link" href="mailto:jeffwebs17@gmail.com">
-              jeffwebs17@gmail.com
-            </a>
-          </span>
+      <span
+          v-if="loadContent.activeSection === 'contact'"
+          class="contact email"
+      >
+        <a class="email-link" href="mailto:jeffwebs17@gmail.com">
+          jeffwebs17@gmail.com
+        </a>
+      </span>
         </transition>
       </div>
     </div>
+
   </div>
 
   <transition name="fade">
@@ -137,6 +137,21 @@ const loadContent = useLoadContentStore();
     transform: translateX(-100%);
     opacity: 0;
   }
+}
+
+@keyframes introSlideFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-intro {
+  animation: introSlideFade 0.8s ease-out;
 }
 
 
